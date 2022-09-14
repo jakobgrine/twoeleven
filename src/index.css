@@ -1,0 +1,167 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+  }
+}
+
+.board {
+  position: relative;
+  width: min(90vmin, 30rem);
+  height: min(90vmin, 30rem);
+
+  --padding: min(3vmin, 1rem);
+  padding: var(--padding);
+
+  --n: 4;
+  --tile-size: calc((100% + var(--padding)) / var(--n) - var(--padding));
+
+  border-radius: 1rem;
+}
+
+.tile {
+  border-radius: 0.5rem;
+
+  transition: all 500ms;
+
+  width: var(--tile-size);
+  height: var(--tile-size);
+  font-size: 3.5em;
+
+  position: absolute;
+  top: calc(var(--y) * (var(--tile-size) + var(--padding)));
+  left: calc(var(--x) * (var(--tile-size) + var(--padding)));
+}
+.tile::before {
+  content: var(--content);
+
+  font-family: monospace;
+  font-weight: 900;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tile-background {
+  background: rgba(127, 127, 127, 0.2);
+}
+
+.tile.tile-2 {
+  background: #eee4da;
+  --content: "2";
+}
+
+.tile.tile-4 {
+  background: #eee1c9;
+  --content: "4";
+}
+
+.tile.tile-8 {
+  color: #f9f6f2;
+  background: #f3b27a;
+  --content: "8";
+}
+
+.tile.tile-16 {
+  color: #f9f6f2;
+  background: #f69664;
+  --content: "16";
+}
+
+.tile.tile-32 {
+  color: #f9f6f2;
+  background: #f77c5f;
+  --content: "32";
+}
+
+.tile.tile-64 {
+  color: #f9f6f2;
+  background: #f75f3b;
+  --content: "64";
+}
+
+.tile.tile-128 {
+  color: #f9f6f2;
+  background: #edd073;
+  --content: "128";
+}
+
+.tile.tile-256 {
+  color: #f9f6f2;
+  background: #edcc62;
+  --content: "256";
+}
+
+.tile.tile-512 {
+  color: #f9f6f2;
+  background: #edc950;
+  --content: "512";
+}
+
+.tile.tile-1024 {
+  color: #f9f6f2;
+  background: #edc53f;
+  --content: "1024";
+}
+
+.tile.tile-2048 {
+  color: #f9f6f2;
+  background: #edc22e;
+  --content: "2048";
+}
+
+.tile.tile-4096 {
+  color: #f9f6f2;
+  background: #3c3a33;
+  --content: "4096";
+}
+
+.tile.tile-8192 {
+  color: #f9f6f2;
+  background: #3c3a33;
+  --content: "8192";
+}
+
+.tile.tile-16384 {
+  color: #f9f6f2;
+  background: #3c3a33;
+  --content: "16384";
+  font-size: 3em;
+}
+
+.tile.tile-32768 {
+  color: #f9f6f2;
+  background: #3c3a33;
+  --content: "32768";
+  font-size: 3em;
+}
+
+.tile.tile-65536 {
+  color: #f9f6f2;
+  background: #3c3a33;
+  --content: "65536";
+  font-size: 3em;
+}
+
+.tile.tile-131072 {
+  color: #f9f6f2;
+  background: #3c3a33;
+  --content: "131072";
+  font-size: 2.5em;
+}

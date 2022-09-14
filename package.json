@@ -1,0 +1,24 @@
+{
+  "name": "twoeleven",
+  "version": "1.0.0",
+  "description": "A 2048 clone in the browser.",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel --dist-dir docs",
+    "build": "rm -rf docs && parcel build --dist-dir docs --public-url /twoeleven"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakobgrine/twoeleven.git"
+  },
+  "author": "jakobgrine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jakobgrine/twoeleven/issues"
+  },
+  "homepage": "https://github.com/jakobgrine/twoeleven#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
