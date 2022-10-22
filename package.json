@@ -5,8 +5,8 @@
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel --dist-dir docs",
-    "build": "rm -rf docs && parcel build --dist-dir docs --public-url /twoeleven"
+    "start": "parcel",
+    "build": "parcel build --public-url /twoeleven"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/jakobgrine/twoeleven/issues"
   },
-  "homepage": "https://github.com/jakobgrine/twoeleven#readme",
+  "homepage": "https://jakobgrine.github.io/twoeleven",
   "devDependencies": {
     "parcel": "^2.7.0"
   }
