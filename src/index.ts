@@ -1,4 +1,4 @@
-import { Board } from "./board";
+import { Board, Direction } from "./board";
 
 function main() {
   const board = new Board();
@@ -6,16 +6,11 @@ function main() {
   window.addEventListener("keydown", (event) => {
     switch (event.code) {
       case "ArrowLeft":
-        board.left();
-        break;
       case "ArrowUp":
-        board.up();
-        break;
       case "ArrowRight":
-        board.right();
-        break;
       case "ArrowDown":
-        board.down();
+        const direction = Direction[event.code.replace("Arrow", "")];
+        board.action(direction);
         break;
     }
   });

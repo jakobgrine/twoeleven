@@ -3,6 +3,13 @@ interface Coordinate {
   y: number;
 }
 
+export enum Direction {
+  Left,
+  Up,
+  Right,
+  Down,
+}
+
 export class Board {
   board: Array<number>;
   size = 4;
@@ -14,14 +21,7 @@ export class Board {
     this.score = Number(localStorage.getItem("score"));
     this.highscore = Number(localStorage.getItem("highscore"));
     this.gameOver = localStorage.getItem("game_over") === "true";
-
-    this.board = localStorage.getItem("board_state")?.split(",")?.map(x => Number(x));
-    if (!this.board) {
-      this.board = new Array(this.size * this.size).fill(0);
-      this.spawnRandomTile();
-      this.spawnRandomTile();
-    }
-
+    this.board = localStorage.getItem("board_state").split(",").map(x => Number(x));
     this.apply();
   }
 
@@ -68,7 +68,30 @@ export class Board {
     }
   }
 
-  left() {
+  action(direction: Direction): boolean {
+    let changed = false;
+    switch (direction) {
+      case Direction.Left:
+        changed = this.left();
+        break;
+      case Direction.Up:
+        changed = this.up();
+        break;
+      case Direction.Right:
+        changed = this.right();
+        break;
+      case Direction.Down:
+        changed = this.down();
+        break;
+    }
+
+    if (changed)
+      this.apply();
+
+    return changed;
+  }
+
+  left(): boolean {
     const scoreDelta = this.merge();
     const moved = this.move();
     this.score += scoreDelta;
@@ -85,32 +108,36 @@ export class Board {
         this.gameOver = true;
       }
 
-      this.apply();
+      return true;
     }
+    return false;
   }
 
-  up() {
+  up(): boolean {
     this.transpose();
-    this.left();
+    const changed = this.left();
     this.transpose();
+    return changed;
   }
 
-  right() {
+  right(): boolean {
     this.transpose();
     this.reflect();
     this.transpose();
-    this.left();
+    const changed = this.left();
     this.transpose();
     this.reflect();
     this.transpose();
+    return changed;
   }
 
-  down() {
+  down(): boolean {
     this.reflect();
     this.transpose();
-    this.left();
+    const changed = this.left();
     this.transpose();
     this.reflect();
+    return changed;
   }
 
   isGameOver(): boolean {
