@@ -11,12 +11,70 @@ body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
+  font-family: monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     background: black;
+    color: white;
   }
+}
+
+dialog {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 2em;
+}
+
+dialog::backdrop {
+  background-color: #121212;
+  opacity: 0.85;
+}
+
+dialog > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  margin: 1em 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 2em;
+}
+
+header p {
+  margin: 0;
+}
+
+button {
+  padding: .5em;
+  border: none;
+  border-radius: 10em;
+  background: none;
+
+  cursor: pointer;
+
+  font-family: monospace;
+  color: #f75f3b;
+  font-size: 1em;
+}
+
+button:hover {
+  background: #f75f3b55;
+}
+
+button:active {
+  background: #f75f3b77;
 }
 
 .board {
@@ -49,7 +107,6 @@ body {
 .tile::before {
   content: var(--content);
 
-  font-family: monospace;
   font-weight: 900;
 
   position: absolute;
@@ -63,11 +120,13 @@ body {
 }
 
 .tile.tile-2 {
+  color: black;
   background: #eee4da;
   --content: "2";
 }
 
 .tile.tile-4 {
+  color: black;
   background: #eee1c9;
   --content: "4";
 }

@@ -3,13 +3,6 @@ interface Coordinate {
   y: number;
 }
 
-export enum Direction {
-  Left,
-  Up,
-  Right,
-  Down,
-}
-
 export class Board {
   board: Array<number>;
   size = 4;
@@ -17,11 +10,12 @@ export class Board {
   score = 0;
   highscore = 0;
 
-  constructor(size: number) {
-    this.size = size;
-
-    // TODO load from localStorage
-    this.reset();
+  constructor() {
+    this.score = Number(localStorage.getItem("score"));
+    this.highscore = Number(localStorage.getItem("highscore"));
+    this.gameOver = localStorage.getItem("game_over") === "true";
+    this.board = localStorage.getItem("board_state").split(",").map(x => Number(x));
+    this.apply();
   }
 
   reset() {
@@ -30,16 +24,19 @@ export class Board {
     this.board = new Array(this.size * this.size).fill(0);
     this.spawnRandomTile();
     this.spawnRandomTile();
+    this.apply();
     this.save();
   }
 
   save() {
-    // TODO save to localStorage
-    // localStorage.setItem("", this.size);
+    localStorage.setItem("score", this.score.toString());
+    localStorage.setItem("highscore", this.highscore.toString());
+    localStorage.setItem("game_over", this.gameOver.toString());
+    localStorage.setItem("board_state", this.board.toString());
   }
 
   apply() {
-    const element = document.getElementById("board-foreground");
+    const boardElement = document.getElementById("board-foreground");
     let html = "";
     for (let row = 0; row < this.size; row++) {
       for (let col = 0; col < this.size; col++) {
@@ -50,23 +47,21 @@ export class Board {
         }
       }
     }
-    element!.innerHTML = html;
-  }
+    boardElement!.innerHTML = html;
 
-  action(direction: Direction): boolean {
-    switch (direction) {
-      case Direction.Left:
-        return this.left();
-      case Direction.Up:
-        return this.up();
-      case Direction.Right:
-        return this.right();
-      case Direction.Down:
-        return this.down();
+    const scoreElement = document.getElementById("score-value");
+    scoreElement!.innerText = this.score.toString();
+
+    const highscoreElement = document.getElementById("highscore-value");
+    highscoreElement!.innerText = this.highscore.toString();
+
+    if (this.gameOver) {
+      const dialogElement = document.getElementById("restart-dialog") as HTMLDialogElement;
+      dialogElement?.showModal();
     }
   }
 
-  left(): boolean {
+  left() {
     const scoreDelta = this.merge();
     const moved = this.move();
     this.score += scoreDelta;
@@ -77,40 +72,38 @@ export class Board {
 
       this.spawnRandomTile();
 
+      this.save();
+
       if (this.isGameOver()) {
         this.gameOver = true;
       }
 
-      return true;
+      this.apply();
     }
-    return false;
   }
 
-  up(): boolean {
+  up() {
     this.transpose();
-    const changed = this.left();
+    this.left();
     this.transpose();
-    return changed;
   }
 
-  right(): boolean {
+  right() {
     this.transpose();
     this.reflect();
     this.transpose();
-    const changed = this.left();
+    this.left();
     this.transpose();
     this.reflect();
     this.transpose();
-    return changed;
   }
 
-  down(): boolean {
+  down() {
     this.reflect();
     this.transpose();
-    const changed = this.left();
+    this.left();
     this.transpose();
     this.reflect();
-    return changed;
   }
 
   isGameOver(): boolean {
