@@ -21,7 +21,14 @@ export class Board {
     this.score = Number(localStorage.getItem("score"));
     this.highscore = Number(localStorage.getItem("highscore"));
     this.gameOver = localStorage.getItem("game_over") === "true";
-    this.board = localStorage.getItem("board_state").split(",").map(x => Number(x));
+
+    this.board = localStorage.getItem("board_state")?.split(",")?.map(x => Number(x));
+    if (!this.board) {
+      this.board = new Array(this.size * this.size).fill(0);
+      this.spawnRandomTile();
+      this.spawnRandomTile();
+    }
+
     this.apply();
   }
 
