@@ -22,8 +22,10 @@ export class Board {
     this.highscore = Number(localStorage.getItem("highscore"));
     this.gameOver = localStorage.getItem("game_over") === "true";
 
-    this.board = localStorage.getItem("board_state")?.split(",")?.map(x => Number(x));
-    if (!this.board) {
+    const savedState = localStorage.getItem("board_state");
+    if (savedState) {
+      this.board = savedState.split(",").map(x => Number(x));
+    } else {
       this.board = new Array(this.size * this.size).fill(0);
       this.spawnRandomTile();
       this.spawnRandomTile();

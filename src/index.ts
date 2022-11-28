@@ -15,10 +15,10 @@ function main() {
     }
   });
 
-  document.getElementById("reset-button").addEventListener("click", () => {
+  document.getElementById("reset-button")!.addEventListener("click", () => {
     board.reset();
   });
-  document.getElementById("restart-button").addEventListener("click", () => {
+  document.getElementById("restart-button")!.addEventListener("click", () => {
     board.reset();
   });
 }
