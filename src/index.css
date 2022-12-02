@@ -224,3 +224,90 @@ button:active {
   --content: "131072";
   font-size: 2.5em;
 }
+
+@media (prefers-color-scheme: dark) {
+  .tile.tile-2 {
+    color: #e8e6e3;
+    background: #392a1a;
+  }
+
+  .tile.tile-4 {
+    color: #e8e6e3;
+    background: #473616;
+  }
+
+  .tile.tile-8 {
+    color: #ebe1d3;
+    background: #7f410b;
+  }
+
+  .tile.tile-16 {
+    color: #ebe1d3;
+    background: #8d3608;
+  }
+
+  .tile.tile-32 {
+    color: #ebe1d3;
+    background: #912107;
+  }
+
+  .tile.tile-64 {
+    color: #ebe1d3;
+    background: #a72507;
+  }
+
+  .tile.tile-128 {
+    color: #ebe1d3;
+    background: #614d0c;
+  }
+
+  .tile.tile-256 {
+    color: #ebe1d3;
+    background: #69530c;
+  }
+
+  .tile.tile-512 {
+    color: #ebe1d3;
+    background: #715a0c;
+  }
+
+  .tile.tile-1024 {
+    color: #ebe1d3;
+    background: #79600b;
+  }
+
+  .tile.tile-2048 {
+    color: #ebe1d3;
+    background: #81670b;
+  }
+
+  .tile.tile-4096 {
+    color: #ebe1d3;
+    background: #2a2d2f;
+  }
+
+  .tile.tile-8192 {
+    color: #ebe1d3;
+    background: #2a2d2f;
+  }
+
+  .tile.tile-16384 {
+    color: #ebe1d3;
+    background: #2a2d2f;
+  }
+
+  .tile.tile-32768 {
+    color: #ebe1d3;
+    background: #2a2d2f;
+  }
+
+  .tile.tile-65536 {
+    color: #ebe1d3;
+    background: #2a2d2f;
+  }
+
+  .tile.tile-131072 {
+    color: #ebe1d3;
+    background: #2a2d2f;
+  }
+}
