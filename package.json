@@ -11,7 +11,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "build:github-pages": "parcel build --public-url /twoeleven"
+    "build:github-pages": "parcel build --public-url /twoeleven",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://jakobgrine.github.io/twoeleven",
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.7.0",
+    "prettier": "^3.0.3"
   }
 }
