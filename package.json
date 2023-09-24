@@ -26,6 +26,7 @@
     "homepage": "https://jakobgrine.github.io/twoeleven",
     "devDependencies": {
         "parcel": "^2.7.0",
-        "prettier": "^3.0.3"
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2"
     }
 }

@@ -4,14 +4,17 @@ function main() {
     const board = new Board();
 
     window.addEventListener("keydown", (event) => {
-        switch (event.code) {
-            case "ArrowLeft":
-            case "ArrowUp":
-            case "ArrowRight":
-            case "ArrowDown":
-                const direction = Direction[event.code.replace("Arrow", "")];
-                board.action(direction);
-                break;
+        if (
+            event.code === "ArrowLeft" ||
+            event.code === "ArrowUp" ||
+            event.code === "ArrowRight" ||
+            event.code === "ArrowDown"
+        ) {
+            const direction =
+                Direction[
+                    event.code.replace("Arrow", "") as keyof typeof Direction
+                ];
+            board.action(direction);
         }
     });
 
