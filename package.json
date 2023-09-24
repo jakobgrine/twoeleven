@@ -1,31 +1,31 @@
 {
-  "name": "twoeleven",
-  "version": "1.0.0",
-  "description": "A 2048 clone in the browser.",
-  "source": "src/index.html",
-  "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build",
-    "build:github-pages": "parcel build --public-url /twoeleven",
-    "format": "prettier --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jakobgrine/twoeleven.git"
-  },
-  "author": "jakobgrine",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jakobgrine/twoeleven/issues"
-  },
-  "homepage": "https://jakobgrine.github.io/twoeleven",
-  "devDependencies": {
-    "parcel": "^2.7.0",
-    "prettier": "^3.0.3"
-  }
+    "name": "twoeleven",
+    "version": "1.0.0",
+    "description": "A 2048 clone in the browser.",
+    "source": "src/index.html",
+    "browserslist": [
+        "> 0.5%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "scripts": {
+        "start": "parcel",
+        "build": "parcel build",
+        "build:github-pages": "parcel build --public-url /twoeleven",
+        "format": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jakobgrine/twoeleven.git"
+    },
+    "author": "jakobgrine",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jakobgrine/twoeleven/issues"
+    },
+    "homepage": "https://jakobgrine.github.io/twoeleven",
+    "devDependencies": {
+        "parcel": "^2.7.0",
+        "prettier": "^3.0.3"
+    }
 }
