@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: lts/hydrogen
           cache: npm
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v2
