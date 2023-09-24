@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "start": "parcel",
-    "build": "parcel build --public-url /twoeleven"
+    "build": "parcel build",
+    "build:github-pages": "parcel build --public-url /twoeleven"
   },
   "repository": {
     "type": "git",

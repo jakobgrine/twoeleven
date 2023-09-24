@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  httpd:
+    build: .
+    ports:
+      - "42069:80"
